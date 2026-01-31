@@ -91,7 +91,15 @@ WHERE p.tipo = 'profesor'
 ORDER BY d.nombre, p.apellido1, p.apellido2, p.nombre;
 
 -- 11. Retorna un llistat amb els professors/es que no estan associats a un departament. (apellido1, apellido2, nombre)
-
+SELECT 
+    p.apellido1,
+    p.apellido2,
+    p.nombre
+FROM profesor pr
+LEFT JOIN departamento d ON pr.id_departamento = d.id
+RIGHT JOIN persona p ON pr.id_profesor = p.id
+WHERE p.tipo = 'profesor'
+    AND d.id IS NULL;
 
 -- 12. Retorna un llistat amb els departaments que no tenen professors/es associats. (nombre)
 
