@@ -134,8 +134,9 @@ SELECT DISTINCT
 FROM departamento d
 LEFT JOIN profesor pr ON d.id = pr.id_departamento
 LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor
-RIGHT JOIN curso_escolar ce ON 1 = 1  -- Tècnicament un RIGHT JOIN, però artificial
-WHERE a.id IS NULL
+LEFT JOIN alumno_se_matricula_asignatura ama ON a.id = ama.id_asignatura
+RIGHT JOIN curso_escolar ce ON ama.id_curso_escolar = ce.id OR (ama.id_curso_escolar IS NULL AND ce.id IS NOT NULL)
+WHERE ama.id_alumno IS NULL
   AND d.id IS NOT NULL
 ORDER BY d.nombre;
 
