@@ -141,7 +141,9 @@ WHERE ama.id_alumno IS NULL
 ORDER BY d.nombre;
 
 -- 16. Retorna el nombre total d'alumnes que hi ha. (total)
-
+SELECT COUNT(id) AS total
+FROM persona
+WHERE tipo = 'alumno';
 
 -- 17. Calcula quants alumnes van néixer en 1999. (total)
 
