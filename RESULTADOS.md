@@ -2,7 +2,7 @@
 
 
 ## 📈 Resumen
-✅ 5 correctas de 6 queries
+✅ 6 correctas de 7 queries
 
 ## ✅ Query 1: Correcto
 
@@ -13,21 +13,21 @@
 
 ## ✅ Query 2: Correcto
 
-⏱ Tiempo: 0.30 ms
+⏱ Tiempo: 0.34 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.34 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 4: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.35 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
@@ -39,6 +39,13 @@
 
 ---
 
-## ❌ Query 6: Error
+## ✅ Query 6: Correcto
+
+⏱ Tiempo: 0.39 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,id_departamento, PRIMARY
+
+---
+
+## ❌ Query 7: Error
 - **Descripción**: 'NoneType' object is not iterable
 
