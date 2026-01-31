@@ -113,9 +113,9 @@ SELECT
     p.apellido1,
     p.apellido2,
     p.nombre
-FROM profesor pr
+FROM persona p
+LEFT JOIN profesor pr ON p.id = pr.id_profesor
 LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor
-RIGHT JOIN persona p ON pr.id_profesor = p.id
 WHERE p.tipo = 'profesor'
   AND a.id IS NULL;
 
