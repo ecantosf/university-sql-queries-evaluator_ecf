@@ -204,7 +204,7 @@ SELECT
     c.anyo_inicio,
     COUNT(DISTINCT am.id_alumno) AS total_alumnos_matriculados
 FROM curso_escolar c
-JOIN alumno_se_matricula_asignatura am ON c.id = am.id_curso_escolar
+RIGHT JOIN alumno_se_matricula_asignatura am ON c.id = am.id_curso_escolar
 GROUP BY c.id, c.anyo_inicio
 ORDER BY c.anyo_inicio;
 
