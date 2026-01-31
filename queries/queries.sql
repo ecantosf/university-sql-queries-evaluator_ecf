@@ -200,7 +200,13 @@ JOIN asignatura a ON a.id_grado = g.id
 GROUP BY g.nombre, a.tipo;
 
 -- 23. Retorna un llistat que mostri quants alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats. (anyo_inicio, total)
-
+SELECT 
+    c.anyo_inicio,
+    COUNT(DISTINCT am.id_alumno) AS total_alumnos_matriculados
+FROM curso_escolar c
+LEFT JOIN alumno_se_matricula_asignatura am ON c.id = am.id_curso_escolar
+GROUP BY c.id, c.anyo_inicio
+ORDER BY c.anyo_inicio;
 
 -- 24. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures. (id, nombre, apellido1, apellido2, total)
 
