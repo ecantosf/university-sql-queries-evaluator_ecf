@@ -120,7 +120,13 @@ WHERE p.tipo = 'profesor'
   AND a.id IS NULL;
 
 -- 14. Retorna un llistat amb les assignatures que no tenen un professor/a assignat. (id, nombre)
-
+SELECT 
+    a.id,
+    a.nombre
+FROM profesor pr
+RIGHT JOIN asignatura a ON pr.id_profesor = a.id_profesor
+LEFT JOIN persona p ON pr.id_profesor = p.id
+WHERE pr.id_profesor IS NULL;
 
 -- 15. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar. (nombre)
 
