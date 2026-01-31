@@ -129,7 +129,15 @@ LEFT JOIN persona p ON pr.id_profesor = p.id
 WHERE pr.id_profesor IS NULL;
 
 -- 15. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar. (nombre)
-
+SELECT DISTINCT
+    d.nombre
+FROM departamento d
+LEFT JOIN profesor pr ON d.id = pr.id_departamento
+LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor
+RIGHT JOIN curso_escolar ce ON 1 = 1  -- Tècnicament un RIGHT JOIN, però artificial
+WHERE a.id IS NULL
+  AND d.id IS NOT NULL
+ORDER BY d.nombre;
 
 -- 16. Retorna el nombre total d'alumnes que hi ha. (total)
 
